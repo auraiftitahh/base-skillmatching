@@ -1,0 +1,1 @@
+<section class="card narrow"><span class="badge">{{ $body?->status }}</span><h2>{{ $body?->name }}</h2><p>Kontak: {{ $body?->contact }}</p><p>Akun: {{ $u->email }}</p><div class="note">Pengelolaan katalog pelatihan hanya dilakukan oleh Admin Platform.</div></section>

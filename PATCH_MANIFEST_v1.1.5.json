@@ -1,0 +1,78 @@
+{
+  "version": "1.1.5",
+  "baseline": "1.1.4",
+  "changed_files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "b9b756a96daf16a1957f6daa03630f7a5b3a9f72f83d23f5621c336f34ea07fa",
+      "old_sha256": "8dd6c4f43affa3d23f9741ef402a4f46a83ab33a7fa40e65b0682d5f709e661b"
+    },
+    {
+      "path": "PATCH_PETUNJUK_v1.1.5.md",
+      "sha256": "f4babc19f7a83da4aba8013b4e29c649c110b7969f957a944299d7f38aa6c5ae",
+      "old_sha256": null
+    },
+    {
+      "path": "PERBAIKAN_HALAMAN_DETAIL_v1.1.5.md",
+      "sha256": "688d9f1b4dc654c028cd839a9dc8e0e215a4045f7338a5a1d487b3df26243fc1",
+      "old_sha256": null
+    },
+    {
+      "path": "README.md",
+      "sha256": "45e9f0c088b53c805697ed01086a4939ac98f13135ea69eab5b1cadb034318ce",
+      "old_sha256": "ee7dcc7b8101d49bc89abc502be5e5a07cf557c2dfed8acb3cb2cc782783f1b2"
+    },
+    {
+      "path": "app/Http/Controllers/WorkspaceController.php",
+      "sha256": "ac691f63dfe4863c0d843625b623515d1c3aafaa6dea29c5cc5066ba5d2bef1d",
+      "old_sha256": "1bccc0cf432555da7a364863e2787ddd4b06ccb6b1e5cf9b6f72657f32aa5464"
+    },
+    {
+      "path": "public/css/skill-matching.css",
+      "sha256": "a2368b748f6fc3178d6e44f99f5eb427fef08595e80365cb2946a655de45b97c",
+      "old_sha256": "305893c4c1ce6cb8a036c932896a5ae9d4073a2d15f36fa69d1bb145b8a357a2"
+    },
+    {
+      "path": "resources/views/workspaces/admin/account-detail.blade.php",
+      "sha256": "56d43b45186caae3b45c1b10e834659d043c65f12e9b559056cbd6323446abb3",
+      "old_sha256": "d633e89b8287b73d19f4852b53b54082c3fe26c6b3accf3166d14e100565e795"
+    },
+    {
+      "path": "resources/views/workspaces/admin/catalog-detail.blade.php",
+      "sha256": "a9a516b054e8a6cdee7aa0dcb415edc298088217b0ae2cbabaddc65466726cae",
+      "old_sha256": "6263500ca71c58a1260e36d3012db90532b146655a46a1fa1a719719d04846fc"
+    },
+    {
+      "path": "resources/views/workspaces/admin/taxonomy-map.blade.php",
+      "sha256": "a84af5d43143553ae11d0d8eea0776705b497fef31fd761be349a4d7bb100d22",
+      "old_sha256": "2cd004559985e380895681e616d8b86b007d01227ac5ad1e98e190faf816ebf3"
+    },
+    {
+      "path": "resources/views/workspaces/pelamar/training-detail.blade.php",
+      "sha256": "eb8ee8bfa879ba3703392bdd68c45c00fe1ae2b4f600e5621adcee57c3d156b3",
+      "old_sha256": "9f4c5b6a8a8aacbc22b678f0b0a25fd715358eb53c1f4cc65fd4350d7196a03f"
+    },
+    {
+      "path": "resources/views/workspaces/sertifikasi/participants.blade.php",
+      "sha256": "7ccdefb2c9ef3877902e2d56ac35f723cd09f26c034542a49835c411fb573c7f",
+      "old_sha256": "cbd803c470eeeb276ad530a4e2e891d19422e8509e58b2ff386414b63105863d"
+    },
+    {
+      "path": "tests/Feature/CatalogDetailRegressionTest.php",
+      "sha256": "69685668f80f49670c8b884d144def9c9f28e2674e84162037ccdc61b78d1dc9",
+      "old_sha256": null
+    },
+    {
+      "path": "tests/Feature/CertificationDetailNavigationTest.php",
+      "sha256": "b09585c470a4d72dc7cdb094d198ba995a70cb5a3f9206df2a4e0b57c2d7f957",
+      "old_sha256": null
+    },
+    {
+      "path": "tests/Feature/GlobalDataControlsTest.php",
+      "sha256": "288fef05e058b413359ecbe46e635d74de36491d102d7e41ef83cc221929749b",
+      "old_sha256": "d3181cd4901a003cf8df8ef1227705b44f7dffb7382a5453b5406b0a76aabd3f"
+    }
+  ],
+  "deleted_files": [],
+  "requires_migration": false
+}

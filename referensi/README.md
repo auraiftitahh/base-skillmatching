@@ -1,0 +1,1 @@
+Dokumen `figma-source` adalah baseline React/Vite dari Figma Make, dipertahankan agar desain/isi 84 layar dapat dibandingkan. Bukan frontend produksi dan tidak terhubung ke Laravel. `specs` berisi pedoman mockup 3 role.

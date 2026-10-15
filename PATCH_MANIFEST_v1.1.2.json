@@ -1,0 +1,14 @@
+{
+  "version": "v1.1.2",
+  "baseline": "SkillMatching_v1.1.1_FullSource.zip",
+  "changed_files": [
+    "app/Models/User.php",
+    "tests/Feature/AccountStatusRegressionTest.php",
+    "PERBAIKAN_TEST_OTORISASI_v1.1.2.md",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "deleted_files": [],
+  "database_migration_required": false,
+  "includes_env": false
+}

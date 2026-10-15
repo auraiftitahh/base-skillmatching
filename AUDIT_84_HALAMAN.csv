@@ -1,0 +1,85 @@
+﻿ID,Nama halaman,URL Figma,Rute kanonis,Template,File template,Status pengujian
+P-01,Login,/pelamar/1,/login,resources/views/auth.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-02,Registrasi,/pelamar/2,/register,resources/views/auth.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-03,Verifikasi Email,/pelamar/3,/login,resources/views/auth.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-04,Lupa Kata Sandi,/pelamar/4,/forgot-password,resources/views/auth.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-05,Reset Kata Sandi,/pelamar/5,/forgot-password,resources/views/auth.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-06,Selamat Datang,/pelamar/6,/pelamar/mulai,resources/views/workspaces/pelamar/start.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-07,Profil Dasar,/pelamar/7,/pelamar/profil,resources/views/workspaces/pelamar/profile.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-08,Profil & Riwayat,/pelamar/8,/pelamar/riwayat,resources/views/workspaces/pelamar/experience-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-09,Tambah / Edit Riwayat,/pelamar/9,/pelamar/riwayat/form,resources/views/workspaces/pelamar/experience-form.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-10,Saran Skill,/pelamar/10,/pelamar/saran-skill,resources/views/workspaces/pelamar/skill-suggestions.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-11,Konfirmasi Skill & Level,/pelamar/11,/pelamar/skill/konfirmasi,resources/views/workspaces/pelamar/skill-edit.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-12,Kesiapan Profil,/pelamar/12,/pelamar/profil/kesiapan,resources/views/workspaces/pelamar/readiness.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-13,Beranda,/pelamar/13,/pelamar/dashboard,resources/views/workspaces/pelamar/dashboard.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-14,Rekomendasi Lowongan,/pelamar/14,/pelamar/lowongan,resources/views/workspaces/pelamar/vacancy-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-15,Detail Lowongan,/pelamar/15,/pelamar/lowongan/detail,resources/views/workspaces/pelamar/vacancy-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-16,Rincian Skor,/pelamar/16,/pelamar/lowongan/skor,resources/views/workspaces/pelamar/vacancy-score.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-17,Analisis Kesenjangan,/pelamar/17,/pelamar/lowongan/kesenjangan,resources/views/workspaces/pelamar/gap.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-18,Riwayat Hasil Rekomendasi,/pelamar/18,/pelamar/lowongan/riwayat,resources/views/workspaces/pelamar/history.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-19,Rekomendasi Pelatihan,/pelamar/19,/pelamar/pelatihan,resources/views/workspaces/pelamar/training-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-20,Detail Pelatihan,/pelamar/20,/pelamar/pelatihan/detail,resources/views/workspaces/pelamar/training-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-21,Rencana Belajar,/pelamar/21,/pelamar/rencana-belajar,resources/views/workspaces/pelamar/learning-plan.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-22,Simulasi,/pelamar/22,/pelamar/simulasi,resources/views/workspaces/pelamar/simulation-form.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-23,Hasil Simulasi,/pelamar/23,/pelamar/simulasi/hasil,resources/views/workspaces/pelamar/simulation-result.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-24,Aktivitas Pelatihan,/pelamar/24,/pelamar/pelatihan/aktivitas,resources/views/workspaces/pelamar/training-progress.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-25,Konfirmasi Penyelesaian,/pelamar/25,/pelamar/pelatihan/selesaikan,resources/views/workspaces/pelamar/training-progress.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-26,Sertifikat,/pelamar/26,/pelamar/sertifikat,resources/views/workspaces/pelamar/certificate-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-27,Unggah & Ajukan Verifikasi,/pelamar/27,/pelamar/sertifikat/ajukan,resources/views/workspaces/pelamar/certificate-form.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-28,Detail Pengajuan,/pelamar/28,/pelamar/sertifikat/detail,resources/views/workspaces/pelamar/certificate-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-29,Catatan Lamaran,/pelamar/29,/pelamar/lamaran,resources/views/workspaces/pelamar/application-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-30,Tambah / Edit Catatan,/pelamar/30,/pelamar/lamaran/form,resources/views/workspaces/pelamar/application-form.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-31,Detail Lamaran,/pelamar/31,/pelamar/lamaran/detail,resources/views/workspaces/pelamar/application-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-32,Umpan Balik,/pelamar/32,/pelamar/umpan-balik,resources/views/workspaces/pelamar/feedback.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+P-33,Pengaturan Akun,/pelamar/33,/pelamar/pengaturan,resources/views/workspaces/pelamar/settings.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-01,Login Admin,/admin/1,/login,resources/views/auth.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-02,Dashboard Admin,/admin/2,/admin/dashboard,resources/views/workspaces/admin/dashboard.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-03,Daftar Skill,/admin/3,/admin/skill,resources/views/workspaces/admin/catalog-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-04,Tambah / Edit Skill,/admin/4,/admin/skill/form,resources/views/workspaces/admin/catalog-form.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-05,Detail Skill,/admin/5,/admin/skill/detail,resources/views/workspaces/admin/catalog-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-06,Daftar Jabatan,/admin/6,/admin/jabatan,resources/views/workspaces/admin/catalog-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-07,Tambah / Edit Jabatan,/admin/7,/admin/jabatan/form,resources/views/workspaces/admin/catalog-form.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-08,Pemetaan Jabatan → Skill,/admin/8,/admin/jabatan/pemetaan,resources/views/workspaces/admin/taxonomy-map.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-09,Daftar Lowongan,/admin/9,/admin/lowongan,resources/views/workspaces/admin/catalog-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-10,Tambah / Edit Lowongan,/admin/10,/admin/lowongan/form,resources/views/workspaces/admin/catalog-form.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-11,Persyaratan Skill,/admin/11,/admin/lowongan/persyaratan,resources/views/workspaces/admin/vacancy-skills.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-12,Detail Lowongan & Riwayat,/admin/12,/admin/lowongan/detail,resources/views/workspaces/admin/catalog-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-13,Import CSV Lowongan,/admin/13,/admin/lowongan/impor,resources/views/workspaces/admin/import.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-14,Hasil Import Lowongan,/admin/14,/admin/lowongan/hasil-impor,resources/views/workspaces/admin/import.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-15,Daftar Pelatihan,/admin/15,/admin/pelatihan,resources/views/workspaces/admin/catalog-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-16,Tambah / Edit Pelatihan,/admin/16,/admin/pelatihan/form,resources/views/workspaces/admin/catalog-form.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-17,Skill yang Diajarkan,/admin/17,/admin/pelatihan/skill,resources/views/workspaces/admin/training-skills.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-18,Prasyarat Pelatihan,/admin/18,/admin/pelatihan/prasyarat,resources/views/workspaces/admin/prerequisites.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-19,Detail Pelatihan & Riwayat,/admin/19,/admin/pelatihan/detail,resources/views/workspaces/admin/catalog-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-20,Import CSV Pelatihan,/admin/20,/admin/pelatihan/impor,resources/views/workspaces/admin/import.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-21,Hasil Import Pelatihan,/admin/21,/admin/pelatihan/hasil-impor,resources/views/workspaces/admin/import.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-22,Konfigurasi Bobot Aktif,/admin/22,/admin/bobot,resources/views/workspaces/admin/weights.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-23,Versi Konfigurasi Baru,/admin/23,/admin/bobot/baru,resources/views/workspaces/admin/weights-form.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-24,Riwayat Versi,/admin/24,/admin/bobot/riwayat,resources/views/workspaces/admin/weights-history.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-25,Detail Versi,/admin/25,/admin/bobot/detail,resources/views/workspaces/admin/weights-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-26,Dashboard Evaluasi,/admin/26,/admin/evaluasi,resources/views/workspaces/admin/evaluation-dashboard.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-27,Profil Uji,/admin/27,/admin/evaluasi/profil,resources/views/workspaces/admin/evaluation-profiles.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-28,Pasangan Profil–Lowongan Uji,/admin/28,/admin/evaluasi/pasangan,resources/views/workspaces/admin/evaluation-pairs.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-29,Data Penilaian Ahli,/admin/29,/admin/evaluasi/penilaian,resources/views/workspaces/admin/evaluation-pairs.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-30,Feedback Pelamar,/admin/30,/admin/evaluasi/umpan-balik,resources/views/workspaces/admin/feedback-list.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-31,Laporan Evaluasi,/admin/31,/admin/laporan,resources/views/workspaces/admin/report.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-32,Ekspor Laporan,/admin/32,/admin/laporan/ekspor,resources/views/workspaces/admin/report.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-33,Akun Platform,/admin/33,/admin/akun,resources/views/workspaces/admin/accounts.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-34,Detail Akun,/admin/34,/admin/akun/detail,resources/views/workspaces/admin/account-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-35,Verifikasi Badan Sertifikasi,/admin/35,/admin/akun/verifikasi,resources/views/workspaces/admin/account-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-36,Status Akun,/admin/36,/admin/akun/status,resources/views/workspaces/admin/account-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+A-37,Riwayat Aktivitas Admin,/admin/37,/admin/aktivitas,resources/views/workspaces/admin/audit.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-01,Login Lembaga,/sertifikasi/1,/login,resources/views/auth.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-02,Registrasi Lembaga,/sertifikasi/2,/register?role=sertifikasi,resources/views/auth.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-03,Verifikasi Email,/sertifikasi/3,/login,resources/views/auth.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-04,Menunggu Verifikasi Admin,/sertifikasi/4,/sertifikasi/menunggu-verifikasi,resources/views/workspaces/sertifikasi/pending.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-05,Dashboard Lembaga,/sertifikasi/5,/sertifikasi/dashboard,resources/views/workspaces/sertifikasi/dashboard.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-06,Pelatihan dalam Kewenangan,/sertifikasi/6,/sertifikasi/pelatihan,resources/views/workspaces/sertifikasi/trainings.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-07,Peserta Pelatihan,/sertifikasi/7,/sertifikasi/pelatihan/peserta,resources/views/workspaces/sertifikasi/participants.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-08,Detail Peserta,/sertifikasi/8,/sertifikasi/pelatihan/peserta/detail,resources/views/workspaces/sertifikasi/participant-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-09,Konfirmasi Kelulusan,/sertifikasi/9,/sertifikasi/pelatihan/kelulusan,resources/views/workspaces/sertifikasi/participant-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-10,Verifikasi Sertifikat,/sertifikasi/10,/sertifikasi/sertifikat,resources/views/workspaces/sertifikasi/certificates.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-11,Detail Permintaan,/sertifikasi/11,/sertifikasi/sertifikat/detail,resources/views/workspaces/sertifikasi/certificate-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-12,Keputusan Verifikasi,/sertifikasi/12,/sertifikasi/sertifikat/keputusan,resources/views/workspaces/sertifikasi/certificate-detail.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-13,Riwayat Proses,/sertifikasi/13,/sertifikasi/riwayat,resources/views/workspaces/sertifikasi/history.blade.php,ADA,Rute & file tersedia; runtime belum diuji
+B-14,Akun & Informasi Lembaga,/sertifikasi/14,/sertifikasi/akun,resources/views/workspaces/sertifikasi/profile.blade.php,ADA,Rute & file tersedia; runtime belum diuji

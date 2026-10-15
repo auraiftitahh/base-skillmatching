@@ -1,0 +1,2 @@
+<section class="card narrow center"><span class="badge orange">Menunggu Verifikasi Admin</span><h2>Identitas lembaga sedang ditinjau</h2><p>Anda dapat mengakses dashboard dan memproses sertifikat setelah Admin memverifikasi lembaga. Status saat ini: {{ $body?->status??'Belum terdaftar' }}.</p><form action="{{ route('logout') }}" method="post">
+@csrf<button class="btn outline">Keluar</button></form></section>

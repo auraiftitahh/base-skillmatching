@@ -1,0 +1,3 @@
+@if(isset($simulation))<section class="card narrow center"><span class="badge">SIMULASI — bukan profil aktual</span><h2>Dampak potensial pada kecocokan</h2><div class="simulation-result">{{ $simulation['before']['display_score'] }} <span>→</span> <strong>{{ $simulation['after']['display_score'] }}</strong></div><p>Hasil ini belum mengubah profil Anda. Tingkat skill baru hanya dicatat setelah proses penyelesaian pelatihan sesuai ketentuan.</p><div class="actions"><a class="btn primary" href="/pelamar/pelatihan">Lihat Pelatihan</a><a class="btn outline" href="/pelamar/simulasi">Simulasikan Lagi</a></div></section>
+@else<div class="empty">Pilih lowongan dan pelatihan terlebih dahulu. <a href="/pelamar/simulasi">Mulai Simulasi</a></div>
+@endif
