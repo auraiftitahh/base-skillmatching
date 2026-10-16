@@ -6,7 +6,8 @@ $menus = match($role) {
     'admin' => ['dashboard','skill','jabatan','lowongan','pelatihan','bobot','evaluasi','laporan','akun','aktivitas'],
     default => ['dashboard','pelatihan','pelatihan/peserta','sertifikat','riwayat','akun'],
 };
-$statusText = ['self_reported'=>'Dilaporkan sendiri','verified'=>'Terverifikasi','pending'=>'Menunggu','rejected'=>'Ditolak','cancelled'=>'Dibatalkan','active'=>'Aktif','draft'=>'Draft','closed'=>'Ditutup','expired'=>'Kedaluwarsa','disabled'=>'Dinonaktifkan','completed'=>'Selesai','planned'=>'Direncanakan','waiting_confirmation'=>'Menunggu konfirmasi'];
+if($role==='sertifikasi' && $body?->status!=='active') $menus=[];
+$statusText = ['in_progress'=>'Sedang belajar','inactive'=>'Nonaktif','self_reported'=>'Dilaporkan sendiri','verified'=>'Terverifikasi','pending'=>'Menunggu','rejected'=>'Ditolak','cancelled'=>'Dibatalkan','active'=>'Aktif','draft'=>'Draft','closed'=>'Ditutup','expired'=>'Kedaluwarsa','disabled'=>'Dinonaktifkan','completed'=>'Selesai','planned'=>'Direncanakan','waiting_confirmation'=>'Menunggu konfirmasi'];
 $levelText = [0=>'Belum memiliki',1=>'Dasar',2=>'Menengah',3=>'Mahir',4=>'Ahli'];
 $menuLabels = [
     'pelamar' => ['dashboard'=>'Beranda','riwayat'=>'Profil & Riwayat','lowongan'=>'Lowongan','pelatihan'=>'Pelatihan','rencana-belajar'=>'Rencana Belajar','simulasi'=>'Simulasi','pelatihan/aktivitas'=>'Aktivitas Pelatihan','sertifikat'=>'Sertifikat','lamaran'=>'Lamaran','pengaturan'=>'Pengaturan'],
@@ -31,29 +32,31 @@ foreach ($menus as $menu) {
 if ($role === 'pelamar' && $page === 'pelatihan/selesaikan') $activeMenu = 'pelatihan/aktivitas';
 if ($role === 'sertifikasi' && $page === 'pelatihan/kelulusan') $activeMenu = 'pelatihan/peserta';
 @endphp
-<div class="app-shell">
+<a class="skip-link" href="#main-content">Lewati ke konten utama</a><div class="app-shell {{ $role==='sertifikasi' && $body?->status!=='active'?'status-only':'' }}" data-role="{{ $role }}" data-page="{{ $page }}" data-view="{{ $viewKey }}">
 <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
 <aside class="side" id="sidebar" aria-label="Navigasi utama">
-<a class="brand" href="/{{ $role }}/dashboard"><span class="logo-symbol" aria-hidden="true">✧</span> skillmatching</a>
-<small>{{ $role==='pelamar'?'RUANG KARIER ANDA':($role==='admin'?'PENGELOLAAN PLATFORM':'PORTAL LEMBAGA') }}</small>
+<a class="brand" href="/{{ $role }}/dashboard"><span class="logo-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10 16 3l13 7-13 7L3 10Zm0 6 13 7 13-7M3 22l13 7 13-7"/></svg></span><span class="brand-copy">skillmatching<small>JEMBATAN MENUJU PELUANG</small></span></a>
+<small>{{ $role==='pelamar'?'RUANG PELAMAR':($role==='admin'?'PENGELOLAAN PLATFORM':'PORTAL LEMBAGA') }}</small>
 <nav aria-label="Menu {{ $role }}">
 @foreach($menus as $link)
+@continue($role==='pelamar' && $link==='pengaturan')
 <a href="/{{ $role }}/{{ $link }}" class="{{ $activeMenu === $link ? 'active' : '' }}" @if($activeMenu === $link) aria-current="page" @endif>
 <img class="nav-icon" src="{{ asset('icons/'.($menuIcons[$link] ?? 'circle-help').'.svg') }}" alt="" aria-hidden="true">
 <span>{{ $menuLabels[$role][$link] ?? ucfirst($link) }}</span>
 </a>
 @endforeach
 </nav>
-<div class="side-bottom"><div class="profile-tile"><span class="avatar">{{ mb_strtoupper(mb_substr($u->name,0,1)) }}</span><div><b>{{ $u->name }}</b><small>{{ $role==='sertifikasi'?'Badan Sertifikasi':ucfirst($role) }}</small></div></div>
+@if(count($menus))<div class="side-tip"><strong>Karier terus bertumbuh</strong><p>Kenali gap keterampilan.<br>Bangun langkah berikutnya.</p></div>@endif<div class="side-bottom"><div class="profile-tile"><span class="avatar">{{ mb_strtoupper(mb_substr($u->name,0,1)) }}</span><div><b>{{ $u->name }}</b><small>{{ $role==='sertifikasi'?'Badan Sertifikasi':ucfirst($role) }}</small></div></div>
+@if($role==='pelamar')<a class="side-settings" href="/pelamar/pengaturan"><img class="nav-icon" src="{{ asset('icons/settings.svg') }}" alt=""> Pengaturan</a>@endif
 <form action="{{ route('logout') }}" method="post">
 @csrf
-<button class="logout">Keluar <span aria-hidden="true">→</span></button></form></div>
+<button class="logout" data-confirm="Anda dapat masuk kembali kapan saja untuk melanjutkan." data-confirm-title="Keluar dari akun?" data-confirm-label="Keluar">Keluar <span aria-hidden="true">→</span></button></form></div>
 </aside>
 <div class="app-content">
 <header class="topbar"><button class="mobile-menu" type="button" id="sidebar-toggle" aria-expanded="false" aria-controls="sidebar"><img src="{{ asset('icons/menu.svg') }}" alt="" aria-hidden="true"> Menu</button>
-<span>Skill Matching <span class="crumb">/ {{ $title }}</span></span><a href="/{{ $role }}/dashboard">Beranda</a></header>
+<span>{{ $role==='sertifikasi'?'Badan Sertifikasi':ucfirst($role) }} <span class="crumb"> › {{ $title }}</span></span><a href="/{{ $role }}/dashboard">Ruang pribadi Anda · Beranda</a></header>
 <div class="ribbon">SKILL MATCHING <span>Keterampilan hari ini, peluang esok hari.</span></div>
-<main id="main-content"><div class="page-title"><div><small>{{ strtoupper($role==='sertifikasi'?'BADAN SERTIFIKASI':$role) }}</small><h1>{{ $title }}</h1></div></div>
+<main id="main-content">@if($page!=='dashboard' && count($menus))<a class="back-link" href="{{ $backUrl }}">← {{ $backLabel }}</a>@endif<div class="page-title"><div><small>{{ $role==='pelamar'?'RUANG KARIER ANDA':($role==='admin'?'PENGELOLAAN PLATFORM':'PORTAL LEMBAGA') }}</small><h1>{{ $displayTitle ?? $title }}</h1>@if($pageDescription)<p>{{ $pageDescription }}</p>@endif</div></div>
 @if(session('success'))
 <div class="alert-success" role="status">{{ session('success') }}</div>
 @endif
@@ -72,15 +75,15 @@ if ($role === 'sertifikasi' && $page === 'pelatihan/kelulusan') $activeMenu = 'p
 </section>
 @endif
 @include('workspaces.'.$role.'.'.$viewKey)
-<footer class="footer">© {{ date('Y') }} Skill Matching — Keterampilan hari ini, peluang esok hari.</footer>
+<footer class="footer">© {{ date('Y') }} Skill Matching — Setiap keterampilan, sebuah peluang.</footer>
 </main></div></div>
-<nav class="mobile-bottom" aria-label="Navigasi cepat">
+@if(count($menus))<nav class="mobile-bottom" aria-label="Navigasi cepat">
 @foreach(array_slice($menus,0,4) as $link)
 <a href="/{{ $role }}/{{ $link }}" class="{{ $activeMenu === $link ? 'active' : '' }}" @if($activeMenu === $link) aria-current="page" @endif>
 <img class="nav-icon" src="{{ asset('icons/'.($menuIcons[$link] ?? 'circle-help').'.svg') }}" alt="" aria-hidden="true"><span>{{ $menuLabels[$role][$link] ?? ucfirst($link) }}</span></a>
 @endforeach
 <button type="button" id="sidebar-toggle-bottom" aria-controls="sidebar"><img class="nav-icon" src="{{ asset('icons/menu.svg') }}" alt="" aria-hidden="true"><span>Menu</span></button>
-</nav>
+</nav>@endif
 <script>
 (function(){
   const sidebar=document.getElementById('sidebar');
@@ -97,3 +100,4 @@ if ($role === 'sertifikasi' && $page === 'pelatihan/kelulusan') $activeMenu = 'p
 })();
 </script>
 @endsection
+

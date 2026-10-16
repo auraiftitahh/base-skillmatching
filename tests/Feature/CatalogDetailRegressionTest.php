@@ -150,7 +150,6 @@ class CatalogDetailRegressionTest extends TestCase
         ]);
         $this->actingAs($user)
             ->get('/pelamar/pelatihan/detail?training_id=999999')
-            ->assertOk()->assertSee('Pelatihan belum tersedia.')
-            ->assertDontSee('Pelatihan Pilihan');
+            ->assertNotFound()->assertDontSee('Pelatihan Pilihan');
     }
 }

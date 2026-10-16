@@ -12,6 +12,6 @@
 @forelse($rows as $row)<div class="subcard">{{ $row->title }}<form method="post" action="{{ route('admin.relation.remove',['training-prerequisite',$row->id]) }}">
 @csrf @method('DELETE')<button class="btn danger" data-confirm="Hapus prasyarat?">Hapus</button></form></div>
 @empty<div class="empty">Tidak ada prasyarat.</div>
-@endforelse</section>
+@endforelse<div class="actions"><a class="btn outline" href="/admin/pelatihan/detail?id={{ request('id') }}">Tinjau & Publikasi →</a></div></section>
 @else<div class="empty">Pilih pelatihan terlebih dahulu.</div>
 @endif

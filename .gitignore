@@ -1,13 +1,35 @@
-/vendor
-/node_modules
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment: simpan contoh konfigurasi, jangan commit rahasia
 /.env
+/.env.*
+!/.env.example
+
+# Laravel generated files
 /public/storage
+/public/build/
+/public/hot
 /storage/*.key
-/storage/logs/*
-/storage/framework/cache/*
-/storage/framework/sessions/*
-/storage/framework/views/*
+/storage/logs/
+/storage/framework/
 /bootstrap/cache/*.php
+
+# Local databases
+/database/*.sqlite
+/database/*.sqlite-*
+
+# Test artifacts
 /.phpunit.cache
 /.phpunit.result.cache
+/coverage/
+
+# Logs and OS files
+*.log
 .DS_Store
+Thumbs.db
+
+# Local storage files; keep the existing app placeholder if present
+/storage/app/*
+!/storage/app/.gitignore

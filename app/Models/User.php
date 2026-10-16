@@ -4,7 +4,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable {
  use Notifiable;
- protected $fillable=['name','email','password','role','is_active','email_verified_at','employment_status','phone'];
+ protected $fillable=['name','email','password','role','is_active','email_verified_at','employment_status','phone','domicile'];
  // Samakan nilai atribut model yang baru dibuat dengan DEFAULT TRUE pada kolom users.is_active.
  // Nilai eksplisit false tetap dihormati untuk akun yang dinonaktifkan admin.
  protected $attributes = ['is_active' => true];

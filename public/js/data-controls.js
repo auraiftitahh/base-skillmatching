@@ -13,6 +13,7 @@
     opened = null;
   }
   function enhance(select) {
+    if (select.closest('.bulk-table')) return;
     if (select.dataset.searchEnhanced === '1' || select.multiple || select.disabled) return;
     select.dataset.searchEnhanced = '1';
     const host = document.createElement('div');

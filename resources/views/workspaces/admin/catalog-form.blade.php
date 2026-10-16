@@ -3,10 +3,10 @@ $kind=str_starts_with($page,'skill')?'skills':(str_starts_with($page,'jabatan')?
 $record=request('id')?\Illuminate\Support\Facades\DB::table($kind)->where('id',request('id'))->first():null;
 $base=match($kind){'skills'=>'skill','jobs_taxonomy'=>'jabatan','job_vacancies'=>'lowongan',default=>'pelatihan'};
 @endphp
-<section class="card narrow"><h2>{{ $record?'Ubah':'Tambah' }} {{ ucfirst($base) }}</h2>
+<section class="card narrow">
 @if(in_array($kind,['job_vacancies','trainings']))<div class="note">Data baru disimpan sebagai <b>Draft</b>. Tambahkan skill terlebih dahulu sebelum menerbitkan.</div>
 @endif
-<form method="post" action="{{ route('catalog.save',$kind) }}">
+<form class="editor-grid" data-dirty-guard method="post" action="{{ route('catalog.save',$kind) }}">
 @csrf
 @if($record)<input type="hidden" name="id" value="{{ $record->id }}">
 @endif
@@ -18,7 +18,7 @@ $base=match($kind){'skills'=>'skill','jobs_taxonomy'=>'jabatan','job_vacancies'=
 <label>Judul lowongan<input name="title" required value="{{ old('title',$record->title??'') }}"></label><label>Perusahaan<input name="company" required value="{{ old('company',$record->company??'') }}"></label><label>Deskripsi<textarea name="description">{{ old('description',$record->description??'') }}</textarea></label>
 <div class="form-row"><label>Lokasi<input name="location" value="{{ old('location',$record->location??'') }}"></label><label>Jenis hubungan kerja<input name="employment_type" value="{{ old('employment_type',$record->employment_type??'') }}"></label></div>
 <label>Sumber data<input name="source" required value="{{ old('source',$record->source??'') }}"></label><label>URL sumber<input name="source_url" type="url" required value="{{ old('source_url',$record->source_url??'') }}"></label>
-<div class="form-row"><label>Tanggal pengambilan<input type="date" name="fetched_at" required value="{{ old('fetched_at',$record->fetched_at??now()->toDateString()) }}"></label><label>Tanggal kedaluwarsa (opsional)<input type="date" name="expires_at" value="{{ old('expires_at',$record->expires_at??'') }}"></label></div>
+<div class="form-row"><label>Tanggal pengambilan<input type="date" name="fetched_at" required value="{{ old('fetched_at',isset($record->fetched_at)?substr((string)$record->fetched_at,0,10):now()->toDateString()) }}"></label><label>Tanggal kedaluwarsa (opsional)<input type="date" name="expires_at" value="{{ old('expires_at',isset($record->expires_at)?substr((string)$record->expires_at,0,10):'') }}"></label></div>
 <label>Status<select name="status">
 @foreach(['draft'=>'Draft','active'=>'Aktif','closed'=>'Ditutup','expired'=>'Kedaluwarsa','disabled'=>'Dinonaktifkan'] as $status=>$text)<option value="{{ $status }}" @selected(old('status',$record->status??'draft')===$status)>{{ $text }}</option>
 @endforeach</select></label>
@@ -32,9 +32,9 @@ $base=match($kind){'skills'=>'skill','jobs_taxonomy'=>'jabatan','job_vacancies'=
 @foreach($allBodies as $b)<option value="{{ $b->id }}" @selected(old('certification_body_id',$record->certification_body_id??null)==$b->id)>{{ $b->name }}</option>
 @endforeach</select></label>
 <label>Sumber data<input name="source" required value="{{ old('source',$record->source??'') }}"></label><label>URL sumber<input name="source_url" type="url" required value="{{ old('source_url',$record->source_url??'') }}"></label>
-<label>Tanggal pengambilan<input name="fetched_at" type="date" required value="{{ old('fetched_at',$record->fetched_at??now()->toDateString()) }}"></label>
+<label>Tanggal pengambilan<input name="fetched_at" type="date" required value="{{ old('fetched_at',isset($record->fetched_at)?substr((string)$record->fetched_at,0,10):now()->toDateString()) }}"></label>
 <label>Status<select name="status">
 @foreach(['draft'=>'Draft','active'=>'Aktif','disabled'=>'Nonaktif'] as $status=>$text)<option value="{{ $status }}" @selected(old('status',$record->status??'draft')===$status)>{{ $text }}</option>
 @endforeach</select></label>
 @endif
-<div class="actions"><button class="btn primary">Simpan Data</button><a class="btn outline" href="/admin/{{ $base }}">Batal</a></div></form></section>
+<div class="actions"><button class="btn primary">Simpan Data</button><button class="btn outline" name="continue" value="1">Simpan & Lanjutkan</button><a class="btn outline" href="/admin/{{ $base }}">Batal</a></div></form></section>

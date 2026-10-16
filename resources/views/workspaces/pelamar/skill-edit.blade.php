@@ -1,11 +1,6 @@
-<section class="card"><h2>Konfirmasi Skill & Level</h2><p>Pilih level sesuai kemampuan Anda: Dasar, Menengah, Mahir, Ahli. Skill yang belum dipilih tidak dimasukkan ke profil.</p>
-<form method="post" action="{{ route('skills.save') }}">
-@csrf
-<div class="filterbar"><input type="search" id="skill-search" placeholder="Cari keterampilan ..." aria-label="Cari skill"></div>
-<div class="skill-grid" id="skill-grid">
-@foreach($skills as $skill)<label class="skill-item" data-skill="{{ strtolower($skill->name) }}"><span>{{ $skill->name }}<small>{{ $skill->category }}</small></span><select name="skill_levels[{{ $skill->id }}]"><option value="">Tidak dipilih</option>
-@foreach([1=>'Dasar',2=>'Menengah',3=>'Mahir',4=>'Ahli'] as $lvl=>$text)<option value="{{ $lvl }}" @selected((int)($ownedSkills->firstWhere('skill_id',$skill->id)->level??0)===$lvl)>{{ $text }}</option>
-@endforeach</select></label>
-@endforeach</div>
-<div class="actions"><button class="btn primary">Simpan Keterampilan</button><a href="/pelamar/profil/kesiapan" class="btn outline">Lihat Kesiapan</a></div></form></section>
-<script>document.getElementById('skill-search').addEventListener('input',e=>document.querySelectorAll('[data-skill]').forEach(x=>x.hidden=!x.dataset.skill.includes(e.target.value.toLowerCase())));</script>
+@php $mainSkills=$skills->filter(fn($s)=>in_array($s->id,$suggestedIds)||$ownedSkills->contains('skill_id',$s->id));$otherSkills=$skills->reject(fn($s)=>$mainSkills->contains('id',$s->id)); @endphp
+<section class="card skill-editor"><p>Pilih tingkat kemampuan Anda. Pilihan baru tersimpan setelah Anda menekan Simpan Keterampilan.</p><form data-dirty-guard method="post" action="{{ route('skills.save') }}">@csrf
+<div id="skill-grid">@forelse($mainSkills as $skill)@include('components.skill-level-row')@empty<div class="note">Belum ada keterampilan dari riwayat atau profil Anda. Tambahkan keterampilan yang Anda kuasai di bawah.</div>@endforelse</div>
+<details class="add-skills" @if($mainSkills->isEmpty()) open @endif><summary>+ Tambahkan keterampilan lain</summary><label class="full-field">Cari keterampilan<input type="search" id="skill-search" placeholder="Ketik nama keterampilan" aria-label="Cari skill"></label><div class="other-skill-list">@foreach($otherSkills as $skill)@include('components.skill-level-row')@endforeach</div></details>
+<details class="help-disclosure"><summary>Panduan level kemampuan</summary><p>Dasar: tugas sederhana dengan arahan. Menengah: tugas rutin secara mandiri. Mahir: tugas kompleks dan pemecahan masalah. Ahli: merancang pendekatan dan membimbing orang lain.</p><p>Saran berdasarkan riwayat tetap perlu Anda konfirmasi. Verifikasi lembaga merupakan proses terpisah. Menghapus riwayat tidak otomatis menghapus keterampilan tersimpan.</p></details><div class="actions"><button class="btn primary">Simpan Keterampilan →</button><a class="btn outline" href="/pelamar/profil/kesiapan">Lihat Kesiapan</a></div></form></section>
+<script>document.getElementById('skill-search')?.addEventListener('input',e=>document.querySelectorAll('.other-skill-list [data-skill]').forEach(x=>x.hidden=!x.dataset.skill.includes(e.target.value.toLocaleLowerCase('id'))));</script>

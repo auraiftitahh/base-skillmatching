@@ -1,6 +1,6 @@
 @php $app=$applications->firstWhere('id',(int)request('id')); 
 @endphp
-<section class="card narrow"><h2>{{ $app?'Perbarui':'Buat' }} Catatan Lamaran</h2><form action="{{ route('applications.save') }}" method="post">
+<section class="card narrow"><h2>{{ $app?'Perbarui':'Buat' }} Catatan Lamaran</h2><form class="editor-grid" data-dirty-guard action="{{ route('applications.save') }}" method="post">
 @csrf
 @if($app)<input name="id" type="hidden" value="{{ $app->id }}">
 @endif

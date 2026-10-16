@@ -50,7 +50,8 @@ class DomainWorkflowRegressionTest extends TestCase
 
     public function test_completed_training_cannot_be_reopened_by_adding_to_plan(): void
     {
-        $f=$this->fixtures('disabled');
+        $f=$this->fixtures();
+        DB::table('trainings')->where('id',$f['trainingId'])->update(['certification_body_id'=>null]);
         $this->actingAs($f['pelamar'])->post(route('plan.save'),['training_id'=>$f['trainingId']])->assertRedirect('/pelamar/rencana-belajar');
         $this->post(route('training.complete'),['training_id'=>$f['trainingId']])->assertRedirect('/pelamar/pelatihan/aktivitas');
         $this->assertDatabaseHas('training_enrollments',[

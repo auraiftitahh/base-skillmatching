@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Unsaved choices open a custom dialog",
+    "Cancel keeps the edit page",
+    "Certificate skills limited to training outcomes",
+    "Certificate level capped at Menengah",
+    "Issuer determined by selected training",
+    "Multi-training simulation form produces explained 55 to 85",
+    "Mobile navigation opens",
+    "Mobile navigation closes with Escape",
+    "Weight publication has parameter review",
+    "Selected bulk skill enables controls",
+    "Unselected bulk skill does not submit extra fields",
+    "No JavaScript page errors"
+  ],
+  "errors": []
+}

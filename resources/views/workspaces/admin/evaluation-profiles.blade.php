@@ -1,8 +1,8 @@
 @include('components.data-filters', ['searchHint'=>'Cari kode profil atau kelompok uji'])
-<section class="card narrow">
+<details class="card"><summary>+ Tambah Profil Uji</summary>
     <h2>Tambah Profil Uji</h2>
     <p>Siapkan contoh kemampuan untuk menilai kecocokan dengan lowongan. Pilih keterampilan dan tingkatnya.</p>
-    <form action="{{ route('evaluation.save', 'profile') }}" method="post">
+    <form class="editor-grid" action="{{ route('evaluation.save', 'profile') }}" method="post">
         @csrf
         <label>Kode profil<input name="code" maxlength="40" required value="{{ old('code') }}" placeholder="Contoh: PROFIL-GUDANG-01"></label>
         <label>Kelompok uji<input name="group" maxlength="100" value="{{ old('group') }}" placeholder="Contoh: Pekerja berpengalaman"></label>
@@ -32,7 +32,7 @@
         <button type="button" class="btn outline" id="add-evaluation-skill">+ Tambah Keterampilan</button>
         <div class="actions" style="margin-top:18px"><button class="btn primary" type="submit">Simpan Profil Uji</button></div>
     </form>
-</section>
+</details>
 <section class="card">
     <h2>Profil Uji Tersimpan</h2>
     <div class="table-wrap"><table><thead><tr><th>Profil</th><th>Kelompok</th><th>Keterampilan</th></tr></thead>

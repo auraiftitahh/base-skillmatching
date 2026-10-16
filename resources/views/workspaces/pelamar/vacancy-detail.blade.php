@@ -1,9 +1,12 @@
-@if($currentJob && $score)<section class="card"><span class="badge">{{ $currentJob->company }}</span><h2>{{ $currentJob->title }}</h2><p>{{ $currentJob->location }} • {{ $currentJob->employment_type }}</p><div class="score-text">{{ $score['display_score'] }} <span>/100</span></div><p>{{ $currentJob->description }}</p><p><small>Sumber: {{ $currentJob->source }} • Berlaku sampai {{ $currentJob->expires_at }}</small></p>
-<div class="actions"><a class="btn primary" href="/pelamar/lowongan/skor?job_id={{ $currentJob->id }}">Rincian Skor</a><a class="btn outline" href="/pelamar/lowongan/kesenjangan?jobs[]={{ $currentJob->id }}">Lihat Gap</a>
-@if($currentJob->source_url)<a class="btn outline" target="_blank" rel="noopener noreferrer" href="{{ $currentJob->source_url }}" data-confirm="Anda akan membuka situs lain. Proses melamar dilakukan di luar Skill Matching. Lanjutkan?">Buka Sumber ↗</a>
-@endif</div></section>
-<section class="card"><h2>Persyaratan Skill</h2><div class="table-wrap"><table><thead><tr><th>Skill</th><th>Minimal</th><th>Level Anda</th><th>Kepentingan</th></tr></thead><tbody>
-@foreach($score['items'] as $item)<tr><td>{{ $item['skill'] }}</td><td>{{ $levelText[$item['target']] }}</td><td>{{ $levelText[$item['own']] }}</td><td>{{ $item['importance']==='required'?'Wajib':'Diutamakan' }}</td></tr>
-@endforeach</tbody></table></div></section>
-@else<div class="empty">Lowongan tidak tersedia.</div>
-@endif
+@if($currentJob && $score)
+<div class="detail-columns vacancy-layout">
+<section class="card detail-main"><div class="company-mark"><img src="{{ asset('icons/briefcase-business.svg') }}" alt=""></div><h2>Tentang peluang ini</h2><p>{{ $currentJob->description ?: 'Informasi pekerjaan tersedia pada situs sumber lowongan.' }}</p>
+<dl class="detail-facts"><div><dt>Hubungan kerja</dt><dd>{{ $currentJob->employment_type ?: 'Lihat sumber' }}</dd></div><div><dt>Sumber</dt><dd>{{ $currentJob->source }}</dd></div><div><dt>Tanggal pengambilan</dt><dd>{{ $currentJob->fetched_at ? \Carbon\Carbon::parse($currentJob->fetched_at)->locale('id')->translatedFormat('d M Y') : '—' }}</dd></div><div><dt>Tanggal tutup</dt><dd>{{ $currentJob->expires_at ? \Carbon\Carbon::parse($currentJob->expires_at)->locale('id')->translatedFormat('d M Y') : 'Tidak dicantumkan' }}</dd></div></dl>
+<h2>Persyaratan keterampilan</h2>
+@forelse($score['items'] as $item)<div class="list-row"><div><h3>{{ $item['skill'] }}</h3><p>{{ $item['importance']==='required'?'Wajib':'Diutamakan' }} · Minimal {{ $levelText[$item['target']] }} · Anda: {{ $levelText[$item['own']] }}</p></div><span class="badge {{ $item['match']>=1?'green':'orange' }}">{{ $item['match']>=1?'Terpenuhi':'Gap' }}</span></div>@empty<p>Belum ada persyaratan keterampilan.</p>@endforelse
+<div class="note">Lamaran dikirim di situs sumber. Skill Matching membantu Anda menemukan kecocokan dan merencanakan peningkatan keterampilan.</div>
+@if($currentJob->source_url)<a class="btn outline" target="_blank" rel="noopener noreferrer" href="{{ $currentJob->source_url }}" data-confirm="Anda akan membuka situs sumber lowongan di luar Skill Matching." data-confirm-title="Buka sumber lowongan?" data-confirm-label="Buka Sumber">Buka Sumber Lowongan ↗</a>@endif
+</section>
+<aside class="card score-panel"><div class="eyebrow">KECOCOKAN ANDA</div><div class="big-score">{{ $score['display_score'] }}<span>/100</span></div><div class="progress"><span style="width:{{ min(100,max(0,$score['score'])) }}%"></span></div><p>{{ collect($score['items'])->filter(fn($i)=>$i['match']<1)->count() }} keterampilan dapat ditingkatkan untuk peluang ini.</p><a class="btn primary full" href="/pelamar/lowongan/skor?job_id={{ $currentJob->id }}">Lihat Rincian Skor</a><a class="btn outline full" href="/pelamar/lowongan/kesenjangan?jobs[]={{ $currentJob->id }}">Analisis Kesenjangan</a><small>Skor kecocokan bukan jaminan diterima bekerja.</small></aside>
+</div>
+@else<div class="empty"><h2>Lowongan tidak tersedia</h2><p>Kembali ke daftar untuk memilih peluang lain.</p><a class="btn primary" href="/pelamar/lowongan">Lihat Lowongan</a></div>@endif

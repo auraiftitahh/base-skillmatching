@@ -1,5 +1,5 @@
 @include('components.data-filters', ['searchHint'=>'Cari peserta atau pelatihan', 'filterOptions'=>[['name'=>'status','label'=>'Status','options'=>[''=>'Semua status','planned'=>'Direncanakan','in_progress'=>'Sedang belajar','waiting_confirmation'=>'Menunggu konfirmasi','completed'=>'Selesai','rejected'=>'Ditolak']]]])
-<section class="card"><div class="catalog-heading"><h2>Peserta Pelatihan</h2>
+<section class="card"><div class="catalog-heading">
 @if(request()->filled('training_id'))
 <a class="btn outline" href="/sertifikasi/pelatihan/peserta">Lihat Semua Pelatihan</a>
 @endif

@@ -1,5 +1,5 @@
 @include('components.data-filters', ['searchHint'=>'Cari nama atau penyedia pelatihan', 'filterOptions'=>[['name'=>'status','label'=>'Status','options'=>[''=>'Semua status','active'=>'Aktif','draft'=>'Draft','disabled'=>'Nonaktif']]]])
-<section class="card"><h2>Pelatihan dalam kewenangan lembaga</h2><div class="table-wrap"><table><thead><tr><th>Pelatihan</th><th>Mode</th><th>Status</th><th>Aksi</th></tr></thead><tbody>
-@forelse($trainings as $t)<tr><td>{{ $t->title }}</td><td>{{ ucfirst($t->mode) }}</td><td>{{ $statusText[$t->status]??$t->status }}</td><td><a href="/sertifikasi/pelatihan/peserta?training_id={{ $t->id }}">Lihat Peserta</a></td></tr>
+<section class="card"><h2>Pelatihan dalam kewenangan lembaga</h2><div class="table-wrap"><table><thead><tr><th>Pelatihan</th><th>Mode</th><th>Status</th><th>Peserta</th><th>Menunggu</th><th>Aksi</th></tr></thead><tbody>
+@forelse($trainings as $t)<tr><td>{{ $t->title }}</td><td>{{ ucfirst($t->mode) }}</td><td>{{ $statusText[$t->status]??$t->status }}</td><td>{{ $participants->where('training_id',$t->id)->count() }}</td><td>{{ $participants->where('training_id',$t->id)->where('status','waiting_confirmation')->count() }}</td><td><a href="/sertifikasi/pelatihan/peserta?training_id={{ $t->id }}">Lihat Peserta</a></td></tr>
 @empty<tr><td colspan="4">Belum ada pelatihan terhubung.</td></tr>
 @endforelse</tbody></table></div></section>

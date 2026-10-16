@@ -1,3 +1,13 @@
+> UI Alignment V2 (16 Oktober 2026): baca [perubahan UI](docs/UI_ALIGNMENT_V2.md), [pemasangan patch](docs/INSTALL_AND_PATCH.md), dan [hasil verifikasi terbaru](docs/VERIFICATION.md).
+
+# Skill Matching — Rilis Peningkatan
+
+Mulai dari [petunjuk instalasi dan patch](docs/INSTALL_AND_PATCH.md), [batas akses](docs/ACCESS_AND_VISIBILITY.md), [skenario seeder](docs/DEMO_SCENARIOS.md), [keputusan implementasi](docs/IMPLEMENTATION_DECISIONS.md) dan [daftar perubahan](docs/CHANGELOG_IMPROVEMENTS.md).
+
+Matriks 84 layar: docs/PAGE_COVERAGE.csv. Rancangan kebutuhan: docs/PRD.md. Bukti pengujian: docs/VERIFICATION.md. Gunakan migration existing; jangan mereset database hosting. Rahasia konfigurasi diisi sendiri pada .env.
+
+---
+
 > **Pembaruan v1.1.5:** perbaikan halaman Detail Jabatan (404), data terkait pada detail katalog, lookup akun lintas pagination, filter peserta dan tes regresi. Lihat `PERBAIKAN_HALAMAN_DETAIL_v1.1.5.md`.
 
 > Pembaruan v1.1.4: lihat `PERBAIKAN_FILTER_TOGGLE_DROPDOWN_v1.1.4.md` untuk pencarian/filter, dropdown, proteksi Admin, dan toggle.

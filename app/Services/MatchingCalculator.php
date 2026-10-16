@@ -23,7 +23,7 @@ final class MatchingCalculator {
    $weight=max(1,min(5,$weight));$sum+=$weight*$match;$total+=$weight;
    $gap=max(0,$target-$own);
    $items[]=['skill_id'=>$id,'skill'=>$r['skill'],'own'=>$own,'target'=>$target,'weight'=>$weight,
-    'importance'=>$r['importance'],'match'=>round($match,4),'related'=>$relatedUsed,
+    'is_override'=>(bool)($r['is_override']??false),'importance'=>$r['importance'],'match'=>round($match,4),'related'=>$relatedUsed,
     'gap'=>$gap,'priority'=>$gap*$weight,'contribution'=>round($weight*$match,4)];
   }
   $score=$total>0?round(100*$sum/$total,2):0.;

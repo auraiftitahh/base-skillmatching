@@ -25,18 +25,21 @@ class WorkspaceController {
     if($role==='sertifikasi' && $body?->status==='active' && $page==='menunggu-verifikasi')return redirect('/sertifikasi/dashboard');
     $data=['u'=>$u,'role'=>$role,'page'=>$page,'title'=>self::TITLES[$role][$page],
       'navigation'=>self::TITLES[$role], 'viewKey'=>self::VIEWS[$role][$page], 'body'=>$body, 'skills'=>Skill::where('is_active',true)->orderBy('name')->get(),
-      'jobsTax'=>JobTaxonomy::orderBy('name')->get(),'config'=>WeightConfiguration::where('is_active',true)->first(),
-      'allBodies'=>DB::table('certification_bodies')->where('status','active')->get(),
-      'allTraining'=>Training::where('status','active')->get(),
-      'allVacancies'=>JobVacancy::where('status','active')->whereDate('expires_at','>=',now()->toDateString())->get()];
+      'jobsTax'=>JobTaxonomy::when($role==='pelamar',fn($q)=>$q->where('is_active',true))->orderBy('name')->get(),'config'=>WeightConfiguration::where('is_active',true)->first(),
+      'allBodies'=>DB::table('certification_bodies')->whereIn('id',\App\Support\Publication::bodyIds())->get(),
+      'allTraining'=>\App\Support\Publication::trainings()->get(),
+      'allVacancies'=>\App\Support\Publication::jobs()->get()];
     if($role==='pelamar'){
       $data['experiences']=$u->experiences()->latest()->get();
       $data['ownedSkills']=DB::table('user_skills as us')->join('skills as s','s.id','=','us.skill_id')->where('us.user_id',$u->id)->select('us.*','s.name')->get();
       $data['levels']=$match->levels($u);$data['rank']=$match->rank($u,true);
-      $data['currentJob']=$r->filled('job_id')?JobVacancy::where('status','active')->whereDate('expires_at','>=',now())->findOrFail($r->integer('job_id')):($data['allVacancies']->first());
+      $r->validate(['job_id'=>'nullable|integer|min:1','jobs'=>'nullable|array|max:60','jobs.*'=>'integer|min:1|distinct','training_id'=>'nullable|integer|min:1','training_ids'=>'nullable|array|max:20','training_ids.*'=>'integer|min:1|distinct','budget'=>'nullable|numeric|min:0','hours'=>'nullable|integer|min:1|max:168','mode'=>'nullable|in:online,offline,hybrid']);
+      $ids=array_values(array_unique(array_filter(array_map('intval',(array)$r->input('jobs',[])))));
+      if($r->filled('job_id'))$ids=[$r->integer('job_id')];
+      abort_unless(count($ids)===$data['allVacancies']->whereIn('id',$ids)->count(),404,'Lowongan target tidak tersedia.');
+      $data['selectedJobIds']=$ids;
+      $data['currentJob']=count($ids)===1?$data['allVacancies']->firstWhere('id',$ids[0]):null;
       $data['score']=$data['currentJob']?$match->score($data['currentJob'],$data['levels']):null;
-      $ids=array_map('intval',(array)$r->input('jobs',[$data['currentJob']?->id]));
-      $data['selectedJobIds']=array_filter($ids);
       $data['gaps']=$match->gap($data['selectedJobIds'],$data['levels']);
       $data['options']=$match->trainingOptions($data['gaps'],$data['levels'],$r->filled('budget')?(float)$r->budget:null,$r->filled('hours')?(int)$r->hours:null,$r->mode);
       $data['path']=$match->learningPath($data['options'],DB::table('training_enrollments')->where('user_id',$u->id)->where('status','completed')->pluck('training_id')->all());
@@ -45,7 +48,10 @@ class WorkspaceController {
       $data['applications']=DB::table('job_applications')->where('user_id',$u->id)->latest()->get();
       $data['certificates']=DB::table('certificates')->where('user_id',$u->id)->latest()->get();
       $data['enrollments']=DB::table('training_enrollments as e')->join('trainings as t','t.id','=','e.training_id')->where('e.user_id',$u->id)->select('e.*','t.title as training_title')->get();
-      if($page==='simulasi/hasil'&&$data['currentJob']&&$r->integer('training_id'))$data['simulation']=$match->simulate($u,$data['currentJob'],[$r->integer('training_id')]);
+      if($page==='simulasi/hasil' && $data['currentJob']) {
+        $trainingIds=array_values(array_unique(array_filter(array_map('intval',(array)$r->input('training_ids',[$r->integer('training_id')])))));
+        if($trainingIds)$data['simulation']=$match->simulate($u,$data['currentJob'],$trainingIds);
+      }
     }elseif($role==='admin'){
       // Halaman detail selalu mengambil data berdasarkan ID yang diminta, bukan dari
       // daftar hasil filter/paginasi. Ini mencegah detail akun/data tidak ditemukan
@@ -167,8 +173,8 @@ class WorkspaceController {
       if($body?->status==='active'){
         $id=$body->id;
         $data['trainings']=Training::where('certification_body_id',$id)->get();
-        $data['participants']=DB::table('training_enrollments as e')->join('trainings as t','t.id','=','e.training_id')->join('users as u','u.id','=','e.user_id')->where('t.certification_body_id',$id)->select('e.*','t.title as training_title','u.name as user_name')->get();
-        $data['certificates']=DB::table('certificates as c')->join('users as u','u.id','=','c.user_id')->where('c.certification_body_id',$id)->select('c.*','u.name as applicant_name')->latest('c.created_at')->get();
+        $data['participants']=DB::table('training_enrollments as e')->join('trainings as t','t.id','=','e.training_id')->join('users as u','u.id','=','e.user_id')->where('t.certification_body_id',$id)->where('u.is_active',true)->whereNotNull('u.email_verified_at')->select('e.*','t.title as training_title','u.name as user_name')->get();
+        $data['certificates']=DB::table('certificates as c')->join('users as u','u.id','=','c.user_id')->where('c.certification_body_id',$id)->where('u.is_active',true)->whereNotNull('u.email_verified_at')->select('c.*','u.name as applicant_name')->latest('c.created_at')->get();
       }
     }
     // Pencarian ringan untuk daftar milik pengguna. Objek tetap dibatasi oleh user/lembaga.
@@ -221,6 +227,6 @@ class WorkspaceController {
       }
       if(in_array($page,['sertifikat','riwayat'],true))$data['certificates']=$filterRows($data['certificates'],['applicant_name','title'],'status');
     }
-    return view('workspace',$data);
+    return view('workspace',\App\Support\PageExperience::enrich($data,$r));
   }
 }

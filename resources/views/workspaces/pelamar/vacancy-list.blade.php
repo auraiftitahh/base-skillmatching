@@ -1,18 +1,17 @@
-<div class="section-actions"><form action="{{ route('recommendations.snapshot') }}" method="post">
-@csrf<button class="btn outline">Simpan Riwayat Perhitungan</button></form><a class="btn outline" href="/pelamar/lowongan/riwayat">Riwayat Hasil</a></div>
-<form class="filterbar" method="get"><label>Cari lowongan<input name="q" value="{{ request('q') }}" placeholder="Posisi pekerjaan"></label><label class="check"><input type="checkbox" name="show_all" value="1" @checked(request('show_all'))> Tampilkan semua skor</label><button class="btn primary">Terapkan</button></form>
-@if($ownedSkills->isEmpty())<div class="note">Belum ada skill yang dikonfirmasi. <a href="/pelamar/skill/konfirmasi">Lengkapi skill agar skor dapat dihitung.</a></div>
-@endif
-<div class="cards">
-@php $shown=0; 
-@endphp
+<div class="section-actions"><p>Temukan peluang yang sesuai dengan keterampilan Anda.</p><div class="actions"><form action="{{ route('recommendations.snapshot') }}" method="post">@csrf<button class="btn outline">Simpan Riwayat</button></form><a class="btn outline" href="/pelamar/lowongan/riwayat">Riwayat Hasil</a></div></div>
+<form class="filterbar" method="get"><label>Cari lowongan<input name="q" value="{{ request('q') }}" placeholder="Posisi atau perusahaan"></label><label>Lokasi<input name="location" value="{{ request('location') }}" placeholder="Kota"></label><label class="check"><input type="checkbox" name="bookmarked" value="1" @checked(request('bookmarked'))> Tersimpan saja</label><label class="check"><input type="checkbox" name="show_all" value="1" @checked(request('show_all'))> Tampilkan semua skor</label><button class="btn primary">Terapkan</button></form>
+@if($ownedSkills->isEmpty())<div class="note">Belum ada skill yang dikonfirmasi. <a href="/pelamar/skill/konfirmasi">Lengkapi skill agar skor dapat dihitung.</a></div>@endif
+<form method="get" action="/pelamar/lowongan/kesenjangan" id="selected-vacancies"></form><div class="cards">
+@php $shown=0; @endphp
 @foreach($rank as $item)
-@if((request('show_all') || $item['score']>=($config->threshold??40)) && (!request('q') || str_contains(mb_strtolower($item['job']),mb_strtolower(request('q')))))
-@php $shown++; 
-@endphp
-<article class="card"><small>{{ $item['company'] }}</small><h3>{{ $item['job'] }}</h3><div class="score-text">{{ $item['display_score'] }}<span> / 100</span></div><div class="progress"><span style="width:{{ min(100,max(0,$item['score'])) }}%"></span></div><small>{{ $item['score']<($config->threshold??40)?'Di bawah ambang utama':'Kecocokan berdasarkan skill Anda' }}</small><div class="actions"><a class="btn primary" href="/pelamar/lowongan/detail?job_id={{ $item['job_id'] }}">Lihat Detail</a></div></article>
-@endif
+@continue(!request('show_all') && $item['score']<($config->threshold??40))
+@continue(request('q') && !str_contains(mb_strtolower($item['job'].' '.$item['company']),mb_strtolower(request('q'))))
+@continue(request('bookmarked') && !in_array($item['job_id'],$bookmarkIds))
+@php $vacancy=$allVacancies->firstWhere('id',$item['job_id']); @endphp
+@continue(request('location') && !str_contains(mb_strtolower($vacancy?->location??''),mb_strtolower(request('location'))))
+@php $shown++;$saved=in_array($item['job_id'],$bookmarkIds); @endphp
+<article class="card job-card"><form class="bookmark-control" method="post" action="{{ route('vacancy.bookmark',$item['job_id']) }}">@csrf<input type="hidden" name="saved" value="{{ $saved?0:1 }}"><button class="bookmark-button" aria-label="{{ $saved?'Hapus penanda':'Simpan lowongan' }} {{ $item['job'] }}" aria-pressed="{{ $saved?'true':'false' }}"><img src="{{ asset('icons/book-open-check.svg') }}" alt=""></button></form>
+<div class="job-card-top"><span class="company-mark"><img src="{{ asset('icons/briefcase-business.svg') }}" alt=""></span><div><h3>{{ $item['job'] }}</h3><p>{{ $item['company'] }}</p></div></div><div class="job-facts"><span>{{ $vacancy?->location?:'Lokasi pada sumber' }}</span><span>· {{ $vacancy?->employment_type?:'Lihat sumber' }}</span></div><div class="chips">@foreach(array_slice($item['items'],0,3) as $requirement)<span class="badge">{{ $requirement['skill'] }}</span>@endforeach</div><div class="match-row"><span>Kecocokan keterampilan</span><strong>{{ $item['display_score'] }}%</strong></div><div class="progress"><span style="width:{{ min(100,max(0,$item['score'])) }}%"></span></div><div class="actions"><a class="text-link" href="/pelamar/lowongan/detail?job_id={{ $item['job_id'] }}">Lihat Detail →</a><label class="check"><input type="checkbox" form="selected-vacancies" name="jobs[]" value="{{ $item['job_id'] }}">Pilih untuk analisis</label></div></article>
 @endforeach
-@if($shown===0)<div class="empty">Tidak ada lowongan yang cocok dengan pencarian/filter saat ini. Coba aktifkan Tampilkan Semua.</div>
-@endif
-</div>
+@if(!$shown)<div class="empty"><h2>Belum ada lowongan untuk ditampilkan</h2><p>Ubah pencarian, lengkapi keterampilan, atau tampilkan semua skor untuk menjelajahi peluang lain.</p><a class="btn outline" href="/pelamar/lowongan?show_all=1">Tampilkan Semua Skor</a></div>@endif
+</div>@if($shown)<div class="actions"><button class="btn primary" form="selected-vacancies">Analisis Lowongan Terpilih</button></div>@endif

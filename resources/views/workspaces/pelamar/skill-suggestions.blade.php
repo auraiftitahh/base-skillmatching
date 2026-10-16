@@ -1,4 +1,4 @@
-@php $suggestions=\Illuminate\Support\Facades\DB::table('user_experiences as e')->join('job_skills_mapping as m','m.job_taxonomy_id','=','e.job_taxonomy_id')->join('skills as s','s.id','=','m.skill_id')->where('e.user_id',$u->id)->distinct()->select('s.id','s.name')->orderBy('s.name')->get(); 
+@php $suggestions=\Illuminate\Support\Facades\DB::table('user_experiences as e')->join('job_skills_mapping as m','m.job_taxonomy_id','=','e.job_taxonomy_id')->join('skills as s','s.id','=','m.skill_id')->where('s.is_active',true)->where('e.user_id',$u->id)->distinct()->select('s.id','s.name')->orderBy('s.name')->get(); 
 @endphp
 <section class="card"><h2>Saran berdasarkan riwayat Anda</h2><p>Saran berasal dari pemetaan jabatan ke skill. Tidak otomatis masuk profil sebelum Anda mengonfirmasi tingkat kemampuan.</p>
 @if($suggestions->isNotEmpty())<div class="chips">

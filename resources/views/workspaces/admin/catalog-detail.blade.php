@@ -148,5 +148,17 @@
                 <p>Pelatihan ini tidak mempunyai prasyarat.</p>
             @endforelse
         @endif
+
+        @if(in_array($kind,['job_vacancies','trainings']))
+        <div class="note"><h3>Review & Publikasi</h3><p>Periksa metadata, persyaratan/capaian dan prasyarat. Draft tidak muncul kepada pelamar. Untuk pelatihan berlembaga, lembaga harus aktif dan emailnya terverifikasi.</p><form method="post" action="{{ route('admin.catalog.status',[$kind,$row->id]) }}">@csrf @method('PATCH')<input type="hidden" name="is_active" value="{{ $row->status==='active'?0:1 }}"><button class="btn primary" data-confirm="{{ $row->status==='active'?'Nonaktifkan data ini dari katalog publik?':'Terbitkan setelah memeriksa kelengkapan data?' }}">{{ $row->status==='active'?'Nonaktifkan':'Terbitkan' }}</button></form></div>
+        @endif
+        @if($kind==='skills')
+        <h3>Skill terkait dan faktor pencocokan</h3><p>Faktor konfigurasi aktif: {{ $config?->related_factor??0 }}. Relasi digunakan ketika skill langsung belum dimiliki.</p>
+        @php $relatedRows=\Illuminate\Support\Facades\DB::table('skill_relations as r')->join('skills as s','s.id','=','r.related_skill_id')->where('r.skill_id',$row->id)->select('s.name')->get(); @endphp
+        @forelse($relatedRows as $related)<span class="badge">{{ $related->name }}</span>@empty<p>Belum ada skill terkait.</p>@endforelse
+        @endif
+        <h3>Riwayat Perubahan Objek</h3>
+        @php $objectEvents=\Illuminate\Support\Facades\DB::table('audit_logs as a')->leftJoin('users as actor','actor.id','=','a.user_id')->where('a.subject_type',$kind)->where('a.subject_id',$row->id)->select('a.*','actor.name as actor_name')->latest('a.created_at')->limit(20)->get(); @endphp
+        @forelse($objectEvents as $event)<div class="timeline-item"><strong>{{ $event->action }}</strong><p>{{ $event->actor_name??'Sistem' }} · {{ $event->created_at }}</p></div>@empty<p>Belum ada perubahan tercatat untuk objek ini. Data lama tidak diberi riwayat rekaan.</p>@endforelse
     </section>
 @endif

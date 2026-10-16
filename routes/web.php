@@ -12,10 +12,16 @@ Route::get('/reset-password/{token}',[AuthController::class,'resetForm'])->name(
 Route::post('/reset-password',[AuthController::class,'reset'])->name('password.update')->middleware('guest');
 Route::get('/verify-email/{id}/{hash}',[AuthController::class,'verify'])->middleware('signed')->name('verification.verify');
 Route::post('/verify-email/resend',[AuthController::class,'resend'])->middleware('throttle:3,1')->name('verification.send');
+Route::get('/verification-notice',fn()=>view('auth',['mode'=>'verify']))->name('verification.notice');
 Route::post('/logout',[AuthController::class,'logout'])->middleware('auth')->name('logout');
 Route::middleware(['auth','active'])->group(function(){
  Route::get('/admin/evaluation/export',[ActionController::class,'export'])->name('evaluation.export');
  Route::get('/{role}/{section}/{sub?}/{action?}',function(\Illuminate\Http\Request $r,string $role,string $section,?string $sub=null,?string $action=null){$page=implode('/',array_filter([$section,$sub,$action],fn($x)=>$x!==null));return app(WorkspaceController::class)->show($r,$role,$page,app(\App\Services\MatchingService::class));})->where(['role'=>'pelamar|admin|sertifikasi','section'=>'[a-z-]+','sub'=>'[a-z-]+','action'=>'[a-z-]+'])->name('workspace');
+ Route::post('/vacancies/{id}/bookmark',[\App\Http\Controllers\ImprovementController::class,'bookmark'])->name('vacancy.bookmark');
+ Route::post('/admin/catalog-skills/{kind}/{id}',[\App\Http\Controllers\BulkSkillsController::class,'save'])->name('catalog.bulk');
+ Route::post('/account/password',[\App\Http\Controllers\ImprovementController::class,'password'])->name('account.password');
+ Route::post('/admin/import/{type}/commit',[\App\Http\Controllers\ImportPreviewController::class,'commit'])->name('import.commit');
+ Route::delete('/admin/import/{type}/preview',[\App\Http\Controllers\ImportPreviewController::class,'cancel'])->name('import.cancel');
  Route::post('/profile',[ActionController::class,'profile'])->name('profile.save');
  Route::post('/experiences',[ActionController::class,'experience'])->name('experience.save');
  Route::delete('/experiences/{id}',[ActionController::class,'deleteExperience'])->name('experience.delete');
@@ -44,7 +50,7 @@ Route::middleware(['auth','active'])->group(function(){
  Route::post('/admin/evaluation/{type}',[ActionController::class,'evaluation'])->name('evaluation.save');
  Route::delete('/admin/{type}/{id}/relation',[ActionController::class,'removeRelation'])->name('admin.relation.remove');
  Route::post('/training-enrollments/{id}/status',[ActionController::class,'enrollmentStatus'])->name('enrollments.status');
- Route::post('/admin/catalog-import/{type}',[ActionController::class,'import'])->name('catalog.import');
+ Route::post('/admin/catalog-import/{type}',[\App\Http\Controllers\ImportPreviewController::class,'preview'])->name('catalog.import');
 });
 Route::redirect('/pelamar/6','/pelamar/mulai');
 Route::redirect('/pelamar/7','/pelamar/profil');

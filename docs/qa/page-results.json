@@ -1,0 +1,1685 @@
+{
+  "results": [
+    {
+      "id": "P-01",
+      "path": "/login",
+      "http": 200,
+      "title": "Skill Matching — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-02",
+      "path": "/register",
+      "http": 200,
+      "title": "Skill Matching — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-03",
+      "path": "/verification-notice",
+      "http": 200,
+      "title": "Skill Matching — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-04",
+      "path": "/forgot-password",
+      "http": 200,
+      "title": "Skill Matching — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-05",
+      "path": "/reset-password/qa-readonly-token?email=raka%40example.com",
+      "http": 200,
+      "title": "Skill Matching — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-06",
+      "path": "/pelamar/mulai",
+      "http": 200,
+      "title": "Selamat Datang — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-07",
+      "path": "/pelamar/profil",
+      "http": 200,
+      "title": "Profil Dasar — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-08",
+      "path": "/pelamar/riwayat",
+      "http": 200,
+      "title": "Profil dan Riwayat — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-09",
+      "path": "/pelamar/riwayat/form",
+      "http": 200,
+      "title": "Tambah atau Ubah Riwayat — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-10",
+      "path": "/pelamar/saran-skill",
+      "http": 200,
+      "title": "Saran Keterampilan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-11",
+      "path": "/pelamar/skill/konfirmasi",
+      "http": 200,
+      "title": "Konfirmasi Skill dan Level — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-12",
+      "path": "/pelamar/profil/kesiapan",
+      "http": 200,
+      "title": "Kesiapan Profil — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-13",
+      "path": "/pelamar/dashboard",
+      "http": 200,
+      "title": "Beranda — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-14",
+      "path": "/pelamar/lowongan",
+      "http": 200,
+      "title": "Rekomendasi Lowongan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-15",
+      "path": "/pelamar/lowongan/detail?job_id=1",
+      "http": 200,
+      "title": "Detail Lowongan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-16",
+      "path": "/pelamar/lowongan/skor?job_id=1",
+      "http": 200,
+      "title": "Rincian Skor — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-17",
+      "path": "/pelamar/lowongan/kesenjangan?jobs%5B%5D=1",
+      "http": 200,
+      "title": "Analisis Kesenjangan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-18",
+      "path": "/pelamar/lowongan/riwayat",
+      "http": 200,
+      "title": "Riwayat Rekomendasi — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-19",
+      "path": "/pelamar/pelatihan?job_id=1",
+      "http": 200,
+      "title": "Rekomendasi Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-20",
+      "path": "/pelamar/pelatihan/detail?job_id=1&training_id=1",
+      "http": 200,
+      "title": "Detail Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-21",
+      "path": "/pelamar/rencana-belajar?job_id=1",
+      "http": 200,
+      "title": "Rencana Belajar — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-22",
+      "path": "/pelamar/simulasi?job_id=1&training_id=1",
+      "http": 200,
+      "title": "Simulasi Skor — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-23",
+      "path": "/pelamar/simulasi/hasil?job_id=1&training_id=1",
+      "http": 200,
+      "title": "Hasil Simulasi — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-24",
+      "path": "/pelamar/pelatihan/aktivitas",
+      "http": 200,
+      "title": "Aktivitas Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-25",
+      "path": "/pelamar/pelatihan/selesaikan",
+      "http": 200,
+      "title": "Penyelesaian Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-26",
+      "path": "/pelamar/sertifikat",
+      "http": 200,
+      "title": "Sertifikat — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-27",
+      "path": "/pelamar/sertifikat/ajukan?training_id=1",
+      "http": 200,
+      "title": "Ajukan Sertifikat — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-28",
+      "path": "/pelamar/sertifikat/detail?id=1",
+      "http": 200,
+      "title": "Detail Verifikasi — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-29",
+      "path": "/pelamar/lamaran",
+      "http": 200,
+      "title": "Catatan Lamaran — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-30",
+      "path": "/pelamar/lamaran/form",
+      "http": 200,
+      "title": "Tambah atau Ubah Catatan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-31",
+      "path": "/pelamar/lamaran/detail?id=1",
+      "http": 200,
+      "title": "Detail Lamaran — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-32",
+      "path": "/pelamar/umpan-balik",
+      "http": 200,
+      "title": "Umpan Balik — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "P-33",
+      "path": "/pelamar/pengaturan",
+      "http": 200,
+      "title": "Pengaturan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-01",
+      "path": "/login",
+      "http": 200,
+      "title": "Skill Matching — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-02",
+      "path": "/admin/dashboard",
+      "http": 200,
+      "title": "Dashboard Admin — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-03",
+      "path": "/admin/skill",
+      "http": 200,
+      "title": "Taksonomi Skill — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-04",
+      "path": "/admin/skill/form?id=1",
+      "http": 200,
+      "title": "Form Skill — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-05",
+      "path": "/admin/skill/detail?id=1",
+      "http": 200,
+      "title": "Detail Skill — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-06",
+      "path": "/admin/jabatan",
+      "http": 200,
+      "title": "Taksonomi Jabatan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-07",
+      "path": "/admin/jabatan/form?id=1",
+      "http": 200,
+      "title": "Form Jabatan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-08",
+      "path": "/admin/jabatan/pemetaan",
+      "http": 200,
+      "title": "Pemetaan Jabatan–Skill — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-09",
+      "path": "/admin/lowongan",
+      "http": 200,
+      "title": "Manajemen Lowongan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-10",
+      "path": "/admin/lowongan/form?id=1",
+      "http": 200,
+      "title": "Form Lowongan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-11",
+      "path": "/admin/lowongan/persyaratan?id=1",
+      "http": 200,
+      "title": "Persyaratan Skill Lowongan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-12",
+      "path": "/admin/lowongan/detail?id=1",
+      "http": 200,
+      "title": "Detail Lowongan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-13",
+      "path": "/admin/lowongan/impor",
+      "http": 200,
+      "title": "Impor CSV Lowongan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-14",
+      "path": "/admin/lowongan/hasil-impor",
+      "http": 200,
+      "title": "Hasil Impor Lowongan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-15",
+      "path": "/admin/pelatihan",
+      "http": 200,
+      "title": "Manajemen Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-16",
+      "path": "/admin/pelatihan/form?id=1",
+      "http": 200,
+      "title": "Form Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-17",
+      "path": "/admin/pelatihan/skill?id=1",
+      "http": 200,
+      "title": "Skill yang Diajarkan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-18",
+      "path": "/admin/pelatihan/prasyarat?id=1",
+      "http": 200,
+      "title": "Prasyarat Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-19",
+      "path": "/admin/pelatihan/detail?id=1",
+      "http": 200,
+      "title": "Detail Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-20",
+      "path": "/admin/pelatihan/impor",
+      "http": 200,
+      "title": "Impor CSV Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-21",
+      "path": "/admin/pelatihan/hasil-impor",
+      "http": 200,
+      "title": "Hasil Impor Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-22",
+      "path": "/admin/bobot",
+      "http": 200,
+      "title": "Konfigurasi Bobot — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-23",
+      "path": "/admin/bobot/baru",
+      "http": 200,
+      "title": "Buat Versi Bobot — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-24",
+      "path": "/admin/bobot/riwayat",
+      "http": 200,
+      "title": "Riwayat Versi Bobot — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-25",
+      "path": "/admin/bobot/detail?id=1",
+      "http": 200,
+      "title": "Detail Versi Bobot — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-26",
+      "path": "/admin/evaluasi",
+      "http": 200,
+      "title": "Evaluasi Kualitas — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-27",
+      "path": "/admin/evaluasi/profil",
+      "http": 200,
+      "title": "Profil Uji — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-28",
+      "path": "/admin/evaluasi/pasangan",
+      "http": 200,
+      "title": "Pasangan Profil–Lowongan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-29",
+      "path": "/admin/evaluasi/penilaian",
+      "http": 200,
+      "title": "Penilaian Ahli — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-30",
+      "path": "/admin/evaluasi/umpan-balik",
+      "http": 200,
+      "title": "Feedback Pelamar — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-31",
+      "path": "/admin/laporan",
+      "http": 200,
+      "title": "Laporan Evaluasi — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-32",
+      "path": "/admin/laporan/ekspor",
+      "http": 200,
+      "title": "Ekspor Laporan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-33",
+      "path": "/admin/akun",
+      "http": 200,
+      "title": "Akun Platform — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-34",
+      "path": "/admin/akun/detail?id=2",
+      "http": 200,
+      "title": "Detail Akun — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-35",
+      "path": "/admin/akun/verifikasi?id=4",
+      "http": 200,
+      "title": "Verifikasi Akun Lembaga — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-36",
+      "path": "/admin/akun/status?id=2",
+      "http": 200,
+      "title": "Status Akun — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "A-37",
+      "path": "/admin/aktivitas",
+      "http": 200,
+      "title": "Riwayat Aktivitas — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-01",
+      "path": "/login",
+      "http": 200,
+      "title": "Skill Matching — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-02",
+      "path": "/register",
+      "http": 200,
+      "title": "Skill Matching — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-03",
+      "path": "/verification-notice",
+      "http": 200,
+      "title": "Skill Matching — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-04",
+      "path": "/sertifikasi/menunggu-verifikasi",
+      "http": 200,
+      "title": "Menunggu Verifikasi Admin — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-05",
+      "path": "/sertifikasi/dashboard",
+      "http": 200,
+      "title": "Dashboard Lembaga — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-06",
+      "path": "/sertifikasi/pelatihan",
+      "http": 200,
+      "title": "Pelatihan Lembaga — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-07",
+      "path": "/sertifikasi/pelatihan/peserta",
+      "http": 200,
+      "title": "Peserta Pelatihan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-08",
+      "path": "/sertifikasi/pelatihan/peserta/detail?id=3",
+      "http": 200,
+      "title": "Detail Peserta — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-09",
+      "path": "/sertifikasi/pelatihan/kelulusan?id=3",
+      "http": 200,
+      "title": "Konfirmasi Kelulusan — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-10",
+      "path": "/sertifikasi/sertifikat",
+      "http": 200,
+      "title": "Permintaan Verifikasi Sertifikat — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-11",
+      "path": "/sertifikasi/sertifikat/detail?id=1",
+      "http": 200,
+      "title": "Detail Sertifikat — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-12",
+      "path": "/sertifikasi/sertifikat/keputusan?id=1",
+      "http": 200,
+      "title": "Keputusan Sertifikat — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-13",
+      "path": "/sertifikasi/riwayat",
+      "http": 200,
+      "title": "Riwayat Proses — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "id": "B-14",
+      "path": "/sertifikasi/akun",
+      "http": 200,
+      "title": "Informasi Lembaga — Skill Matching",
+      "viewports": [
+        {
+          "width": 1440,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "overflow": false
+        },
+        {
+          "width": 360,
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
