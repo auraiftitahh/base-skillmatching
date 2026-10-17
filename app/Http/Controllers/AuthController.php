@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Mail\AccountActionMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{Auth,DB,Hash,Mail,Password,RateLimiter,URL};
 use Illuminate\Auth\Events\Verified;
@@ -18,7 +19,10 @@ class AuthController {
   $user=DB::transaction(function()use($v,$role){$u=User::create(['name'=>$v['name'],'email'=>$v['email'],'password'=>$v['password'],'role'=>$role,'is_active'=>true]);if($role==='sertifikasi')DB::table('certification_bodies')->insert(['user_id'=>$u->id,'name'=>$v['body_name'],'contact'=>$v['contact']??null,'status'=>'pending','created_at'=>now(),'updated_at'=>now()]);return $u;});
   event(new Registered($user));$this->sendVerification($user);return redirect('/verification-notice')->with('success','Akun terdaftar. Periksa email untuk tautan verifikasi.');
  }
- private function sendVerification(User $user):void { $url=URL::temporarySignedRoute('verification.verify',now()->addMinutes(60),['id'=>$user->id,'hash'=>sha1($user->email)]);Mail::raw("Verifikasi email Skill Matching melalui tautan berikut (berlaku 60 menit):\n{$url}",fn($m)=>$m->to($user->email)->subject('Verifikasi Email Skill Matching')); }
+ private function sendVerification(User $user):void {
+  $url=URL::temporarySignedRoute('verification.verify',now()->addMinutes(60),['id'=>$user->id,'hash'=>sha1($user->email)]);
+  Mail::to($user->email)->send(new AccountActionMail($user->name,$url,'verification',60));
+ }
  public function resend(Request $r){$r->validate(['email'=>'required|email']);$user=User::where('email',$r->email)->first();if($user&&!$user->hasVerifiedEmail())$this->sendVerification($user);return back()->with('success','Jika akun memerlukan verifikasi, tautan telah dikirim.');}
  public function verify(Request $r,int $id,string $hash){abort_unless($r->hasValidSignature(),403);$u=User::findOrFail($id);abort_unless(hash_equals(sha1($u->email),$hash),403);if(!$u->hasVerifiedEmail()){$u->forceFill(['email_verified_at'=>now()])->save();event(new Verified($u));}return redirect()->route('login')->with('success','Email terverifikasi. Silakan masuk.');}
  public function login(Request $r){$data=$r->validate(['email'=>'required|email','password'=>'required|string']);$key='login:'.strtolower($data['email']).':'.$r->ip();
